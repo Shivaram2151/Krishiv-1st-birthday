@@ -26,7 +26,7 @@ export const eventConfig = {
    */
   birthdayDate: '2026-11-14',
   birthdayTime: '19:00',
-  endTime: '',
+  endTime: '23:00',
   timezone: 'Asia/Kolkata',
   utcOffset: '+05:30',
 
@@ -48,7 +48,7 @@ export const eventConfig = {
 
   /* ── Extras ────────────────────────────────────────────── */
   dressCode: '',
-  organizerContact: '', // e.g. "+91 98765 43210"
+  organizerContact: '+91 91007 42151', // e.g. "+91 98765 43210"
   // How many guests a single RSVP may include
   maxGuestsPerRsvp: 6,
 
