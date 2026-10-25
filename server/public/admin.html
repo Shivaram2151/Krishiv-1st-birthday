@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Organizer Dashboard · Krishiv Turns One</title>
+  <style>
+    :root { --navy:#071B3D; --blue:#0754BB; --gold:#EAB95B; --ivory:#FFFAF0; --text:#10264D; --muted:#62718B; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; background: var(--ivory); color: var(--text); }
+    header { background: var(--navy); color: #fff; padding: 18px 16px; border-bottom: 3px solid var(--gold); }
+    header h1 { margin:0; font-size: 1.25rem; font-family: Georgia, serif; font-style: italic; }
+    header p { margin: 4px 0 0; color: #FFE4A0; font-size: .85rem; }
+    main { max-width: 1000px; margin: 0 auto; padding: 16px; }
+    .card { background:#fff; border:1px solid #f0dcae; border-radius: 16px; padding: 16px; margin-bottom: 16px; box-shadow: 0 6px 20px -12px rgba(7,27,61,.3); }
+    label { font-weight: 600; display:block; margin-bottom: 6px; }
+    input { width:100%; min-height:46px; padding: 10px 12px; font-size:16px; border:1.5px solid #d9e1ee; border-radius: 10px; }
+    button { min-height: 44px; padding: 0 16px; border: 0; border-radius: 999px; font-weight: 700; cursor: pointer; font-size: .95rem; }
+    .primary { background: var(--blue); color: #fff; }
+    .gold { background: var(--gold); color: var(--navy); }
+    .ghost { background: transparent; color: var(--blue); box-shadow: inset 0 0 0 1.5px #c9d7ee; }
+    .danger { background: #fdecea; color: #b42318; }
+    .row { display:flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .stats { display:grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
+    .stat { background: #f2f7ff; border-radius: 12px; padding: 12px; }
+    .stat b { display:block; font-size: 1.6rem; color: var(--blue); }
+    .tabs { display:flex; gap:8px; margin: 8px 0 16px; flex-wrap: wrap; }
+    .tabs button[aria-selected="true"] { background: var(--navy); color: #fff; }
+    table { width:100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { text-align:left; padding: 10px 8px; border-bottom: 1px solid #eef1f6; vertical-align: top; }
+    th { font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+    .table-wrap { overflow-x: auto; }
+    .wish { border:1px solid #f0dcae; border-radius: 12px; padding: 12px; margin-bottom: 10px; }
+    .wish p { margin: 0 0 6px; white-space: pre-line; overflow-wrap:anywhere; }
+    .muted { color: var(--muted); font-size: .85rem; }
+    .pill { display:inline-block; padding: 2px 10px; border-radius: 999px; font-size: .78rem; font-weight: 700; }
+    .yes { background:#e3f6ea; color:#1b7f4b; } .no { background:#fdecea; color:#b42318; }
+    .msg { padding: 10px 12px; border-radius: 10px; margin-top: 10px; }
+    .err { background:#fdecea; color:#b42318; } .hidden { display:none !important; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Krishiv Turns One — Organizer Dashboard</h1>
+    <p>Private: RSVPs and wish moderation. Keep your admin token secret.</p>
+  </header>
+  <main>
+    <section class="card" id="login">
+      <form id="login-form">
+        <label for="token">Admin token</label>
+        <input id="token" type="password" autocomplete="current-password" required />
+        <div class="row" style="margin-top:12px">
+          <button class="primary" type="submit">Open dashboard</button>
+          <span class="muted">Stored only in this browser tab.</span>
+        </div>
+        <p id="login-error" class="msg err hidden" role="alert"></p>
+      </form>
+    </section>
+
+    <section id="dash" class="hidden">
+      <div class="tabs" role="tablist">
+        <button type="button" class="ghost" role="tab" data-tab="rsvps" aria-selected="true">RSVPs</button>
+        <button type="button" class="ghost" role="tab" data-tab="pending" aria-selected="false">Wishes awaiting approval</button>
+        <button type="button" class="ghost" role="tab" data-tab="approved" aria-selected="false">Published wishes</button>
+        <button type="button" class="ghost" id="logout">Lock</button>
+      </div>
+
+      <div id="tab-rsvps" class="card">
+        <div class="stats" id="stats"></div>
+        <div class="row" style="margin:14px 0">
+          <button type="button" class="gold" id="csv">Download CSV</button>
+          <button type="button" class="ghost" id="refresh">Refresh</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Name</th><th>Status</th><th>Guests</th><th>Phone</th><th>Message</th><th>Received</th><th></th></tr></thead>
+            <tbody id="rsvp-rows"></tbody>
+          </table>
+        </div>
+        <p id="rsvp-empty" class="muted hidden">No RSVPs yet.</p>
+      </div>
+
+      <div id="tab-wishes" class="card hidden">
+        <div id="wish-list"></div>
+        <p id="wish-empty" class="muted hidden">Nothing here right now.</p>
+      </div>
+      <p id="dash-error" class="msg err hidden" role="alert"></p>
+    </section>
+  </main>
+  <script src="/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+// Krishiv Turns One — RSVP + wishes data model (PostgreSQL)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Rsvp {
+  id            String   @id @default(cuid())
+  name          String   @db.VarChar(80)
+  phone         String?  @db.VarChar(20)
+  guests        Int      @default(1)
+  attending     Boolean
+  message       String?  @db.VarChar(500)
+  // SHA-256 of the private edit token returned to the guest's browser.
+  editTokenHash String   @db.Char(64)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([createdAt])
+}
+
+model Wish {
+  id         String    @id @default(cuid())
+  name       String    @db.VarChar(80)
+  message    String    @db.VarChar(400)
+  approved   Boolean   @default(false)
+  approvedAt DateTime?
+  createdAt  DateTime  @default(now())
+
+  @@index([approved, createdAt])
+}

@@ -1,0 +1,213 @@
+/* ─────────────────────────────────────────────────────────────
+   Ambient CSS animations (transform / opacity only)
+   ───────────────────────────────────────────────────────────── */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.7);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-2deg);
+  }
+  50% {
+    transform: translate3d(0, -16px, 0) rotate(2deg);
+  }
+}
+
+@keyframes sway {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-3deg);
+  }
+  50% {
+    transform: translate3d(6px, -14px, 0) rotate(3deg);
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes rise {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0;
+  }
+  15% {
+    opacity: var(--o, 0.8);
+  }
+  85% {
+    opacity: var(--o, 0.8);
+  }
+  100% {
+    transform: translate3d(var(--dx, 0px), -110vh, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(14px, 0, 0);
+  }
+}
+
+@keyframes btn-glow {
+  0%,
+  100% {
+    box-shadow: 0 10px 24px -10px rgba(201, 138, 43, 0.9), 0 0 0 0 rgba(255, 228, 160, 0.45),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  }
+  50% {
+    box-shadow: 0 10px 28px -8px rgba(201, 138, 43, 1), 0 0 0 10px rgba(255, 228, 160, 0),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-120%) skewX(-20deg);
+  }
+  60%,
+  100% {
+    transform: translateX(220%) skewX(-20deg);
+  }
+}
+
+.anim-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+.anim-float-slow {
+  animation: float-slow 7s ease-in-out infinite;
+}
+
+.anim-sway {
+  animation: sway 8s ease-in-out infinite;
+}
+
+.anim-drift {
+  animation: drift 14s ease-in-out infinite;
+}
+
+.anim-glow {
+  animation: glow-pulse 5s ease-in-out infinite;
+}
+
+.btn-glow {
+  animation: btn-glow 2.6s ease-in-out infinite;
+  overflow: hidden;
+}
+
+.btn-glow::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 40%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+  animation: shimmer 3.6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Starfield */
+.starfield {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.starfield .star {
+  position: absolute;
+  border-radius: 50%;
+  background: #fffbea;
+  box-shadow: 0 0 6px 1px rgba(255, 228, 160, 0.7);
+  animation: twinkle var(--d, 3s) ease-in-out var(--delay, 0s) infinite;
+  will-change: opacity, transform;
+}
+
+.starfield .sparkle {
+  position: absolute;
+  animation: twinkle var(--d, 4s) ease-in-out var(--delay, 0s) infinite;
+}
+
+/* Golden particles */
+.particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.particles span {
+  position: absolute;
+  bottom: -12px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff4cf 0%, #eab95b 60%, transparent 70%);
+  animation: rise var(--d, 18s) linear var(--delay, 0s) infinite;
+  will-change: transform, opacity;
+}
+
+/* ── Reduced motion ─────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .particles {
+    display: none;
+  }
+
+  .starfield .star,
+  .starfield .sparkle {
+    opacity: 0.7;
+  }
+}
