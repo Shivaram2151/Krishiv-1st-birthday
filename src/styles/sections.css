@@ -1266,7 +1266,8 @@ a.info-value {
   position: absolute;
   left: 0;
   right: 0;
-  top: calc(100% + 8px);
+  /* Opens upward: the button sits near the bottom of the section, which clips overflow */
+  bottom: calc(100% + 8px);
   z-index: 10;
   list-style: none;
   margin: 0;
