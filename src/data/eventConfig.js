@@ -88,7 +88,7 @@ export const eventConfig = {
   /* ── Sharing ───────────────────────────────────────────────
    * Public URL of the deployed site. Empty = current page URL.
    */
-  publicUrl: '',
+  publicUrl: 'https://krishiv1stbirthday.vercel.app',
   shareMessage:
     "You're invited to celebrate Krishiv's first birthday! Open the invitation for the details, photos and RSVP.",
 
