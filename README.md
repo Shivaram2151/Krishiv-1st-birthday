@@ -1,18 +1,20 @@
-# Krishiv's 1st Birthday Invitation
+# Krishiv's First Birthday Invitation
+
+A mobile-first React + Vite birthday invitation inspired by the royal navy-blue and gold screens.
 
 ## Run locally
-1. Install Node.js (18+ recommended).
-2. Open a terminal in this folder.
-3. Run `npm install`
-4. Run `npm run dev`
-5. Open the local URL shown by Vite.
+```bash
+npm install
+npm run dev
+```
+Open the local address Vite prints in your terminal.
 
-## Customize before publishing
-- In `src/main.jsx`, update `EVENT_DATE`, `VENUE`, and the event date/time text.
-- Replace the illustrated photo placeholders with approved baby photos.
-- The RSVP and wishes forms are front-end demos; they do not save responses yet. Connect a backend/form service before relying on them.
-- Music control is a visual toggle only; add a licensed audio file and playback logic if you want actual music.
-- Deploy the built app to Vercel or Netlify (`npm run build`).
+## Before publishing
+1. In `src/main.jsx`, update `EVENT_DATE`, `EVENT_LABEL`, `EVENT_TIME`, `VENUE`, and `MAPS_URL`.
+2. Replace `babyPhoto` and the `gallery` image URLs with your own photo URLs or local assets.
+3. RSVP and wishes are currently front-end demos only; they do not save to a database or send messages.
+4. Music is a visual toggle only until an audio file and playback logic are added.
+5. The reference storyboard is at `public/assets/krishiv-screen-reference.png`.
 
-## Notes
-The design is mobile-first and includes a tappable envelope intro, animated elements, countdown, directions link, photo placeholders, RSVP demo, wishes demo, and share button.
+## Deploy
+Push this project to GitHub and import the repository into Vercel. Vercel should detect Vite automatically.
