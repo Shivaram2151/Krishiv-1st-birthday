@@ -1572,15 +1572,6 @@ a.info-value {
   object-fit: cover;
 }
 
-.venue-map-btn {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  background: #fff;
-  color: var(--blue-600);
-  box-shadow: var(--shadow);
-}
-
 .venue-body {
   padding: 12px 6px 6px;
 }

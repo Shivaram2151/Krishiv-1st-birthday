@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { Copy, Navigation, ParkingCircle, Landmark, MapPin, Map as MapIcon } from 'lucide-react';
+import { Copy, Navigation, ParkingCircle, Landmark, MapPin } from 'lucide-react';
 import { eventConfig } from '../data/eventConfig';
 import { directionsUrl, fullAddress, mapEmbedUrl, copyText } from '../utils/event';
 import SectionHeading from './SectionHeading';
@@ -10,7 +9,6 @@ import { useToast } from './Toast';
 /** Screen 10 — venue location with map, directions and copy-address. */
 export default function VenueMap() {
   const toast = useToast();
-  const [showMap, setShowMap] = useState(false);
   const dirUrl = directionsUrl();
   const embed = mapEmbedUrl();
   const address = fullAddress();
@@ -28,23 +26,18 @@ export default function VenueMap() {
 
         <Reveal className="venue-card card gold-frame">
           <div className="venue-map">
-            {embed && showMap ? (
+            {embed ? (
               <iframe
                 title={`Map showing ${eventConfig.venueName || 'the venue'}`}
                 src={embed}
                 loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
+                referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
               />
             ) : eventConfig.venuePhoto ? (
               <img src={eventConfig.venuePhoto} alt={`${eventConfig.venueName || 'Venue'} photo`} loading="lazy" />
             ) : (
               <MapIllustration label={eventConfig.venueName?.trim() || null} />
-            )}
-            {embed && !showMap && (
-              <button type="button" className="btn btn-sm venue-map-btn" onClick={() => setShowMap(true)}>
-                <MapIcon aria-hidden="true" /> Show interactive map
-              </button>
             )}
           </div>
 
