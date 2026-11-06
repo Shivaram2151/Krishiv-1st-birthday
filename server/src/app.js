@@ -138,10 +138,19 @@ export function createApp({ prisma, config }) {
     message: { error: 'Too many requests — please wait a few minutes and try again.' },
   });
   const adminLimiter = rateLimit({ windowMs: 15 * 60 * 1000, limit: 300, standardHeaders: 'draft-7', legacyHeaders: false });
+  // Short passwords are allowed, so cap wrong guesses: 10 failed logins per IP per 15 min.
+  const adminFailLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000,
+    limit: 10,
+    skipSuccessfulRequests: true,
+    standardHeaders: 'draft-7',
+    legacyHeaders: false,
+    message: { error: 'Too many wrong passwords. Please wait 15 minutes and try again.' },
+  });
 
   const requireAdmin = (req, res, next) => {
-    if (!adminToken || adminToken.length < 16) {
-      return res.status(503).json({ error: 'Admin access is not configured (set ADMIN_TOKEN, 16+ characters).' });
+    if (!adminToken) {
+      return res.status(503).json({ error: 'Admin password is not set on the server (ADMIN_TOKEN).' });
     }
     const header = req.get('authorization') || '';
     const token = header.startsWith('Bearer ') ? header.slice(7) : '';
@@ -235,7 +244,7 @@ export function createApp({ prisma, config }) {
 
   /* ── Admin (organizer only) ───────────────────────────── */
   const admin = express.Router();
-  admin.use(adminLimiter, requireAdmin);
+  admin.use(adminLimiter, adminFailLimiter, requireAdmin);
 
   admin.get(
     '/rsvps',

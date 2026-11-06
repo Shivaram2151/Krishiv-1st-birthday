@@ -19,8 +19,8 @@ if (!process.env.DATABASE_URL) {
   console.error('DATABASE_URL is not set. Copy .env.example to .env and fill it in.');
   process.exit(1);
 }
-if (!config.adminToken || config.adminToken.length < 16) {
-  console.warn('⚠  ADMIN_TOKEN is missing or too short — the organizer dashboard will be disabled.');
+if (!config.adminToken) {
+  console.warn('⚠  ADMIN_TOKEN is not set — the organizer dashboard will be disabled.');
 }
 
 const app = createApp({ prisma, config });
