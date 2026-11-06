@@ -64,17 +64,17 @@ export const eventConfig = {
   // Month-wise photos: set src for each month, e.g. "/assets/gallery/month-01.webp".
   // Add fit: "contain" to show a wide photo whole in its tile instead of cropping the sides.
   gallery: [
-    { src: '', month: 1, category: '1 Month', date: 'Dec 2025', alt: 'Krishiv at 1 month' },
+    { src: '/assets/gallery/month-01.jpg', month: 1, category: '1 Month', date: 'Dec 2025', alt: 'Krishiv dressed in yellow silk among marigold rangoli at 1 month', fit: 'contain' },
     { src: '/assets/gallery/month-02.jpg', month: 2, category: '2 Months', date: 'Jan 2026', alt: 'Krishiv at 2 months' },
     { src: '/assets/gallery/month-03.jpg', month: 3, category: '3 Months', date: 'Feb 2026', alt: 'Krishiv as a little farmer at 3 months', fit: 'contain' },
     { src: '/assets/gallery/month-04.jpg', month: 4, category: '4 Months', date: 'Mar 2026', alt: 'Krishiv as a little chef at 4 months', fit: 'contain' },
-    { src: '', month: 5, category: '5 Months', date: 'Apr 2026', alt: 'Krishiv at 5 months' },
-    { src: '', month: 6, category: '6 Months', date: 'May 2026', alt: 'Krishiv at 6 months' },
-    { src: '', month: 7, category: '7 Months', date: 'Jun 2026', alt: 'Krishiv at 7 months' },
-    { src: '', month: 8, category: '8 Months', date: 'Jul 2026', alt: 'Krishiv at 8 months' },
-    { src: '', month: 9, category: '9 Months', date: 'Aug 2026', alt: 'Krishiv at 9 months' },
-    { src: '', month: 10, category: '10 Months', date: 'Sep 2026', alt: 'Krishiv at 10 months' },
-    { src: '', month: 11, category: '11 Months', date: 'Oct 2026', alt: 'Krishiv at 11 months' },
+    { src: '/assets/gallery/month-05.jpg', month: 5, category: '5 Months', date: 'Apr 2026', alt: 'Krishiv wrapped like a chocolate among sweets at 5 months', fit: 'contain' },
+    { src: '/assets/gallery/month-06.jpg', month: 6, category: '6 Months', date: 'May 2026', alt: 'Krishiv with a toy-car race track at 6 months', fit: 'contain' },
+    { src: '/assets/gallery/month-07.jpg', month: 7, category: '7 Months', date: 'Jun 2026', alt: 'Krishiv on a beach-themed setup at 7 months', fit: 'contain' },
+    { src: '/assets/gallery/month-08.jpg', month: 8, category: '8 Months', date: 'Jul 2026', alt: 'Krishiv beside a hot-air-balloon basket at 8 months', fit: 'contain' },
+    { src: '/assets/gallery/month-09.jpg', month: 9, category: '9 Months', date: 'Aug 2026', alt: 'Krishiv the little artist with paints at 9 months', fit: 'contain' },
+    { src: '/assets/gallery/month-10.jpg', month: 10, category: '10 Months', date: 'Sep 2026', alt: 'Dr. Sri Krishiv with a doctor kit at 10 months', fit: 'contain' },
+    { src: '/assets/gallery/month-11.jpg', month: 11, category: '11 Months', date: 'Oct 2026', alt: 'Krishiv the little cricketer at 11 months', fit: 'contain' },
     { src: '', month: 12, category: '1 Year', date: 'Nov 2026', alt: 'Krishiv at 1 year' },
   ],
   // Optional memory videos: { src: "/assets/gallery/clip.mp4", poster: "", title: "" }

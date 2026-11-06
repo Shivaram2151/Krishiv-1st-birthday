@@ -11,3 +11,5 @@ server/.env
 *.heic
 *.HEIC
 public/assets/gallery/IMG_*
+public/assets/gallery/*.jpeg
+public/assets/gallery/*.PNG
