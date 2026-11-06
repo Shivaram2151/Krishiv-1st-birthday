@@ -3,6 +3,8 @@
   const $ = (id) => document.getElementById(id);
   let token = sessionStorage.getItem('krishiv-admin') || '';
   let tab = 'rsvps';
+  // ponytail: static file, cannot read VITE_API_BASE_URL; change here if the API moves.
+  const API = "https://krishiv-1st-birthday.onrender.com";
 
   const el = (tag, props = {}, ...children) => {
     const n = document.createElement(tag);
@@ -16,7 +18,7 @@
   };
 
   async function api(path, opts = {}) {
-    const res = await fetch(`/api/admin${path}`, {
+    const res = await fetch(`${API}/api/admin${path}`, {
       ...opts,
       headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...(opts.headers || {}) },
     });

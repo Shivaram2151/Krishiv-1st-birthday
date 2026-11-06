@@ -1,13 +1,9 @@
 import crypto from 'node:crypto';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import { z } from 'zod';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 /* ── Helpers ─────────────────────────────────────────────── */
 const sha256 = (s) => crypto.createHash('sha256').update(s).digest('hex');
@@ -323,9 +319,6 @@ export function createApp({ prisma, config }) {
 
   app.use('/api/admin', admin);
 
-  /* Organizer dashboard (static page; data still requires the admin token). */
-  app.get('/admin', (_req, res) => res.sendFile(path.join(__dirname, '..', 'public', 'admin.html')));
-  app.get('/admin.js', (_req, res) => res.sendFile(path.join(__dirname, '..', 'public', 'admin.js')));
 
   /* 404 + errors */
   app.use('/api', (_req, res) => res.status(404).json({ error: 'Not found.' }));

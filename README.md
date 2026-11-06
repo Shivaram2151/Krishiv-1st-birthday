@@ -75,7 +75,7 @@ npm run dev
 - User text is always displayed as plain text, never as HTML.
 - The CSV export is protected against spreadsheet formula injection.
 
-**Organizer dashboard:** open `https://<your-api>/admin` and enter your `ADMIN_TOKEN`. From there you can:
+**Organizer dashboard:** open `https://<your-site>/admin/` (static page in `public/admin/`; set the API URL at the top of `admin.js`) and enter your `ADMIN_TOKEN`. From there you can:
 
 - see the RSVP totals
 - download the RSVPs as a CSV file
@@ -130,7 +130,8 @@ src/components/            EnvelopeOpening, HeroSection, BirthdayInvitation, Cou
 src/services/api.js        API client (demo mode when no API URL is set)
 src/utils/                 dates, calendar (.ics / Google), maps, validation
 src/styles/                global, animations, envelope, sections, responsive
-server/                    Express API, Prisma schema and migrations, organizer dashboard
+public/admin/              organizer dashboard (static)
+server/                    Express API, Prisma schema and migrations
 ```
 
 ## 7. Accessibility and performance
