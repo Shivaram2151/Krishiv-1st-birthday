@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { AnimatePresence, MotionConfig } from 'framer-motion';
+import { Analytics } from '@vercel/analytics/react';
 import EnvelopeOpening from './components/EnvelopeOpening';
 import Navbar from './components/Navbar';
 import NavigationMenu from './components/NavigationMenu';
@@ -59,6 +60,7 @@ export default function App() {
           <Experience />
         </MusicProvider>
       </ToastProvider>
+      <Analytics />
     </MotionConfig>
   );
 }
