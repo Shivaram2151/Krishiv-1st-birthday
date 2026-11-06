@@ -9,6 +9,10 @@ const BASE = (import.meta.env.VITE_API_BASE_URL || '').trim().replace(/\/+$/, ''
 
 export const isBackendConfigured = BASE.length > 0;
 
+// Wake the free-tier Render server (sleeps when idle, ~30-60s cold start) as soon as
+// the page loads, so it is ready by the time the guest reaches RSVP/wishes.
+if (isBackendConfigured) fetch(`${BASE}/api/health`).catch(() => {});
+
 export class ApiError extends Error {
   constructor(message, { status, fields } = {}) {
     super(message);
@@ -17,7 +21,7 @@ export class ApiError extends Error {
   }
 }
 
-async function request(path, { method = 'GET', body, headers, timeout = 15000 } = {}) {
+async function request(path, { method = 'GET', body, headers, timeout = 70000 } = {}) {
   if (!isBackendConfigured) throw new ApiError('The response service is not configured yet.', { status: 0 });
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeout);
