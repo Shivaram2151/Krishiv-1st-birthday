@@ -10,3 +10,4 @@ server/.env
 # Original phone photos (converted to JPG for the site)
 *.heic
 *.HEIC
+public/assets/gallery/IMG_*

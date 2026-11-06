@@ -62,11 +62,12 @@ export const eventConfig = {
     alt: 'Portrait of Krishiv',
   },
   // Month-wise photos: set src for each month, e.g. "/assets/gallery/month-01.webp".
+  // Add fit: "contain" to show a wide photo whole in its tile instead of cropping the sides.
   gallery: [
     { src: '', month: 1, category: '1 Month', date: 'Dec 2025', alt: 'Krishiv at 1 month' },
     { src: '/assets/gallery/month-02.jpg', month: 2, category: '2 Months', date: 'Jan 2026', alt: 'Krishiv at 2 months' },
-    { src: '', month: 3, category: '3 Months', date: 'Feb 2026', alt: 'Krishiv at 3 months' },
-    { src: '', month: 4, category: '4 Months', date: 'Mar 2026', alt: 'Krishiv at 4 months' },
+    { src: '/assets/gallery/month-03.jpg', month: 3, category: '3 Months', date: 'Feb 2026', alt: 'Krishiv as a little farmer at 3 months', fit: 'contain' },
+    { src: '/assets/gallery/month-04.jpg', month: 4, category: '4 Months', date: 'Mar 2026', alt: 'Krishiv as a little chef at 4 months', fit: 'contain' },
     { src: '', month: 5, category: '5 Months', date: 'Apr 2026', alt: 'Krishiv at 5 months' },
     { src: '', month: 6, category: '6 Months', date: 'May 2026', alt: 'Krishiv at 6 months' },
     { src: '', month: 7, category: '7 Months', date: 'Jun 2026', alt: 'Krishiv at 7 months' },

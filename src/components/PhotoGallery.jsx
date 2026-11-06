@@ -80,7 +80,7 @@ export default function PhotoGallery() {
                 >
                   <span className="photo-media">
                     {item.src ? (
-                      <img src={item.src} alt={item.alt} loading="lazy" decoding="async" width="800" height="600" />
+                      <img src={item.src} alt={item.alt} loading="lazy" decoding="async" width="800" height="600" style={item.fit ? { objectFit: item.fit } : undefined} />
                     ) : (
                       <Placeholder item={item} />
                     )}
