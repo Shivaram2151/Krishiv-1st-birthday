@@ -64,7 +64,7 @@ export const eventConfig = {
   // Month-wise photos: set src for each month, e.g. "/assets/gallery/month-01.webp".
   gallery: [
     { src: '', month: 1, category: '1 Month', date: 'Dec 2025', alt: 'Krishiv at 1 month' },
-    { src: '', month: 2, category: '2 Months', date: 'Jan 2026', alt: 'Krishiv at 2 months' },
+    { src: '/assets/gallery/month-02.jpg', month: 2, category: '2 Months', date: 'Jan 2026', alt: 'Krishiv at 2 months' },
     { src: '', month: 3, category: '3 Months', date: 'Feb 2026', alt: 'Krishiv at 3 months' },
     { src: '', month: 4, category: '4 Months', date: 'Mar 2026', alt: 'Krishiv at 4 months' },
     { src: '', month: 5, category: '5 Months', date: 'Apr 2026', alt: 'Krishiv at 5 months' },

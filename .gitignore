@@ -6,3 +6,7 @@ server/node_modules
 server/.env
 *.log
 .DS_Store
+
+# Original phone photos (converted to JPG for the site)
+*.heic
+*.HEIC
