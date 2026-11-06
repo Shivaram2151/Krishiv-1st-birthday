@@ -58,7 +58,7 @@ export const eventConfig = {
    * Empty src = elegant placeholder showing the month number.
    */
   portrait: {
-    src: '',
+    src: '/assets/baby/krishiv.jpg',
     alt: 'Portrait of Krishiv',
   },
   // Month-wise photos: set src for each month, e.g. "/assets/gallery/month-01.webp".
@@ -88,7 +88,7 @@ export const eventConfig = {
   /* ── Sharing ───────────────────────────────────────────────
    * Public URL of the deployed site. Empty = current page URL.
    */
-  publicUrl: 'https://krishiv1stbirthday.vercel.app',
+  publicUrl: 'https://krishiv1stbirthday.shivaram.in',
   shareMessage:
     "You're invited to celebrate Krishiv's first birthday! Open the invitation for the details, photos and RSVP.",
 
