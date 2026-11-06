@@ -91,7 +91,7 @@ export const eventConfig = {
    */
   publicUrl: 'https://krishiv1stbirthday.shivaram.in',
   shareMessage:
-    "You're invited to celebrate Krishiv's first birthday! Open the invitation for the details, photos and RSVP.",
+    "You're invited to celebrate Manchala Sri Krishiv's first birthday! Saturday, 14 November 2026, 7 PM at VKB A/C Garden, Jagtial. Open the invitation for details, photos and RSVP:",
 
   theme: {
     primary: '#0754BB',
