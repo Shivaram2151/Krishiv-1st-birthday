@@ -83,7 +83,7 @@ export const eventConfig = {
    * Put a licensed, gentle instrumental track in /public/assets/audio
    * and set e.g. "/assets/audio/lullaby.mp3". Empty = no music toggle.
    */
-  musicUrl: '',
+  musicUrl: '/assets/audio/birthday-music-box.mp3',
 
   /* ── Sharing ───────────────────────────────────────────────
    * Public URL of the deployed site. Empty = current page URL.
